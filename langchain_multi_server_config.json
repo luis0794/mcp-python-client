@@ -1,0 +1,40 @@
+{
+    "mcpServers": {
+        "terminal_server": {
+            "command": "docker",
+            "args": [
+                "run",
+                "-i",
+                "--rm",
+                "--init",
+                "-e",
+                "DOCKER_CONTAINER=true",
+                "-v",
+                "/Users/luigi/Documents/Tech dev/Tests/mcp/workspace:/root/mcp/workspace",
+                "terminal_server_docker"
+            ]
+        },
+        "memory": {
+            "command": "npx",
+            "args": ["-y", "@modelcontextprotocol/server-memory"]
+        },
+        "filesystem": {
+            "command": "npx",
+            "args": ["-y", "@modelcontextprotocol/server-filesystem", "/Users/luigi"]
+        },
+        "atlassian": {
+            "command": "npx",
+            "args": ["-y", "mcp-remote", "https://mcp.atlassian.com/v1/sse"],
+            "disabled": true
+        },
+        "playwright": {
+            "command": "npx",
+            "args": ["-y", "@playwright/mcp@latest"],
+            "disabled": true
+        },
+        "fetch": {
+            "command": "uvx",
+            "args": ["mcp-server-fetch"]
+        }
+    }
+}
