@@ -14,3 +14,6 @@ dependencies = [
     "mcp>=1.9.4",
     "python-dotenv>=1.1.0",
 ]
+
+[tool.setuptools]
+py-modules = ["client_sse"]
